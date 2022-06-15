@@ -28,7 +28,7 @@ app.get('/is-today-holiday', (req, res) => {
   data=hoje.toLocaleDateString();
 
   for(let i=0;i<holidays.length;i++){
-    if(holidays[i]==data){
+    if(holidays[i].date==data){
       res.send(`Sim, hoje é ${holidays[i].name}`);
     }
   }
