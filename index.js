@@ -20,15 +20,14 @@ app.get('/holidays', (req, res) => {
 
   res.send(holidays);
 });
-
 app.get('/is-today-holiday', (req, res) => {
   
   const hoje = new Date();
   console.log(hoje.toLocaleDateString()); // 1/1/2022
-  data=hoje.toLocaleDateString();
+  let data=hoje.toLocaleDateString();
 
   for(let i=0;i<holidays.length;i++){
-    if(holidays[i].date==data){
+    if(holidays[i].date===data){
       res.send(`Sim, hoje é ${holidays[i].name}`);
     }
   }
@@ -36,4 +35,4 @@ app.get('/is-today-holiday', (req, res) => {
   res.send('Não, hoje não é feriado');
 });
 
-app.listen(3000);
+app.listen(3002);
